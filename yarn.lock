@@ -406,6 +406,11 @@ array.prototype.tosorted@^1.1.1:
     es-shim-unscopables "^1.0.0"
     get-intrinsic "^1.1.3"
 
+ascii85@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ascii85/-/ascii85-1.0.2.tgz#6212543d4236944debe4827ecae642776e415448"
+  integrity sha512-kliwItQL8aueLy2XwGDRc6U4FLrZuSKvc3NYhaTnUEsl8JjjkvMNYJ2WmBoZnUYMEz6nvZ9yGhruoufaVcNAnw==
+
 ast-types-flow@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
@@ -444,6 +449,11 @@ balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
+
+base45@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/base45/-/base45-2.0.1.tgz#019591fa5857520c6e76f8e3bf389022b7a8d889"
+  integrity sha512-Cr2mmczMfOQSkt9OyzpUpUNWKCurLpYhCjkN+yPXicjEc47gkN9LbklR3c7dUrpcPonjoAyZp7bZQChRRg4G1Q==
 
 big-integer@^1.6.44:
   version "1.6.51"
