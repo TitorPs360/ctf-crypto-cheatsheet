@@ -3,8 +3,12 @@
 import { useState } from 'react';
 
 import Tab, { TabOption } from '@components/layout/Tab';
+import Footer from '@components/layout/Footer';
 
 import Translator from '@components/translator/Translator';
+import Solver from '@components/solver/Solver';
+import Indentifier from '@components/indentifier/Indentifier';
+import Language from '@components/language/Language';
 
 import {
   fromDecimal,
@@ -30,16 +34,30 @@ import {
 } from '@utils/crypto';
 import AlgorithmSelectSection from '@components/translator/AlgorithmSelectSection';
 import { EncrytpionAlgorithm } from '@customTypes/crypto';
-import Footer from '@components/layout/Footer';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TabOption>(TabOption.translator);
+
+  const renderTab = () => {
+    switch (activeTab) {
+      case TabOption.translator:
+        return <Translator />;
+      case TabOption.solver:
+        return <Solver />;
+      case TabOption.indentifier:
+        return <Indentifier />;
+      case TabOption.language:
+        return <Language />;
+      default:
+        return <Translator />;
+    }
+  };
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-between bg-cccDarkBlue">
       <Tab activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <Translator />
+      {renderTab()}
 
       <Footer />
 
