@@ -1,3 +1,5 @@
+import { EncrytpionAlgorithm } from '../customTypes/crypto';
+
 const base45 = require('base45');
 const ascii85 = require('ascii85');
 
@@ -322,6 +324,54 @@ const toROT47 = (input: string): string => {
   return result;
 };
 
+// Get Encryption result with encryption algorithm
+const getEncryptionResult = (input: string, algorithm: EncrytpionAlgorithm): string => {
+  switch (algorithm) {
+    case EncrytpionAlgorithm.fromDecimal:
+      return fromDecimal(input);
+    case EncrytpionAlgorithm.toDecimal:
+      return toDecimal(input);
+    case EncrytpionAlgorithm.fromHex:
+      return fromHex(input);
+    case EncrytpionAlgorithm.toHex:
+      return toHex(input);
+    case EncrytpionAlgorithm.fromBase32:
+      return fromBase32(input);
+    case EncrytpionAlgorithm.toBase32:
+      return toBase32(input);
+    case EncrytpionAlgorithm.fromBase45:
+      return fromBase45(input);
+    case EncrytpionAlgorithm.toBase45:
+      return toBase45(input);
+    case EncrytpionAlgorithm.fromBase58:
+      return fromBase58(input);
+    case EncrytpionAlgorithm.toBase58:
+      return toBase58(input);
+    case EncrytpionAlgorithm.fromBase62:
+      return fromBase62(input);
+    case EncrytpionAlgorithm.toBase62:
+      return toBase62(input);
+    case EncrytpionAlgorithm.fromBase64:
+      return fromBase64(input);
+    case EncrytpionAlgorithm.toBase64:
+      return toBase64(input);
+    case EncrytpionAlgorithm.fromBase85:
+      return fromBase85(input);
+    case EncrytpionAlgorithm.toBase85:
+      return toBase85(input);
+    case EncrytpionAlgorithm.fromROT13:
+      return fromROT13(input);
+    case EncrytpionAlgorithm.toROT13:
+      return toROT13(input);
+    case EncrytpionAlgorithm.fromROT47:
+      return fromROT47(input);
+    case EncrytpionAlgorithm.toROT47:
+      return toROT47(input);
+    default:
+      return '';
+  }
+};
+
 export {
   fromDecimal,
   toDecimal,
@@ -343,4 +393,5 @@ export {
   toROT13,
   fromROT47,
   toROT47,
+  getEncryptionResult,
 };
