@@ -1,4 +1,10 @@
-import Image from 'next/image';
+'use client';
+
+import { useState } from 'react';
+
+import Tab, { TabOption } from '@components/layout/Tab';
+
+import Translator from '@components/translator/Translator';
 
 import {
   fromDecimal,
@@ -21,12 +27,23 @@ import {
   toROT13,
   fromROT47,
   toROT47,
-} from './utils/crypto';
+} from '@utils/crypto';
+import AlgorithmSelectSection from '@components/translator/AlgorithmSelectSection';
+import { EncrytpionAlgorithm } from '@customTypes/crypto';
+import Footer from '@components/layout/Footer';
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<TabOption>(TabOption.translator);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <p>fromDecimal {fromDecimal('72 101 108 108 111')}</p>
+    <div className="w-full h-full flex flex-col items-center justify-between bg-cccDarkBlue">
+      <Tab activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      <Translator />
+
+      <Footer />
+
+      {/* <p>fromDecimal {fromDecimal('72 101 108 108 111')}</p>
 
       <p>toDecimal {toDecimal('Hello')}</p>
 
@@ -64,7 +81,7 @@ export default function Home() {
 
       <p>fromROT47 {fromROT47('w6==@')}</p>
 
-      <p>toROT47 {toROT47('Hello')}</p>
-    </main>
+      <p>toROT47 {toROT47('Hello')}</p> */}
+    </div>
   );
 }
