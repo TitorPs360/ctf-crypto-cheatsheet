@@ -76,7 +76,7 @@ const AlgorithmRecipeSection: FC<AlgorithmRecipeSectionProps> = ({
             <RiDeleteBinLine size={28} className="cursor-pointer" onClick={clearCard} />
           </div>
         </div>
-        <div className="overflow-y-auto" style={{ height: 'calc(100vh - 200px)' }}>
+        <div className="overflow-y-auto" style={{ height: 'calc(100vh - 170px)' }}>
           <div className="w-full px-4 py-4 flex flex-col gap-2">
             {selectedAlgorithms.map((card, i) => renderCard(card, i))}
           </div>
