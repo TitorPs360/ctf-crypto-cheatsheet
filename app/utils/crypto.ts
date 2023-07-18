@@ -60,7 +60,8 @@ const fromBase32 = (input: string): string => {
     const charValue = charSet.indexOf(char);
 
     if (charValue === -1) {
-      throw new Error('Invalid base32 string');
+      return '';
+      // throw new Error('Invalid base32 string');
     }
 
     value = (value << 5) | charValue;
@@ -108,13 +109,21 @@ const toBase32 = (input: string): string => {
 // From Base45
 const fromBase45 = (input: string): string => {
   // Example input: "%69 VDL2"
-  return base45.decode(input).toString('utf-8');
+  try {
+    return base45.decode(input).toString('utf-8');
+  } catch (e) {
+    return '';
+  }
 };
 
 // To Base45
 const toBase45 = (input: string): string => {
   // Example input: "Hello"
-  return base45.encode(input);
+  try {
+    return base45.encode(input);
+  } catch (e) {
+    return '';
+  }
 };
 
 // From Base58
@@ -129,7 +138,8 @@ const fromBase58 = (input: string): string => {
     const charValue = charSet.indexOf(char);
 
     if (charValue === -1) {
-      throw new Error('Invalid base58 string');
+      return '';
+      // throw new Error('Invalid base58 string');
     }
 
     result = result * base + BigInt(charValue);
@@ -178,7 +188,8 @@ const fromBase62 = (input: string): string => {
     const charValue = charSet.indexOf(char);
 
     if (charValue === -1) {
-      throw new Error('Invalid base62 string');
+      return '';
+      // throw new Error('Invalid base62 string');
     }
 
     result = result * base + BigInt(charValue);
@@ -219,25 +230,41 @@ const toBase62 = (input: string): string => {
 // From Base64
 const fromBase64 = (input: string): string => {
   // Example input: "SGVsbG8="
-  return atob(input);
+  try {
+    return atob(input);
+  } catch (e) {
+    return '';
+  }
 };
 
 // To Base64
 const toBase64 = (input: string): string => {
   // Example input: "Hello"
-  return btoa(input);
+  try {
+    return btoa(input);
+  } catch (e) {
+    return '';
+  }
 };
 
 // From Base85
 const fromBase85 = (input: string): string => {
   // Example input: "87cURDZ"
-  return ascii85.decode(input).toString();
+  try {
+    return ascii85.decode(input).toString();
+  } catch (e) {
+    return '';
+  }
 };
 
 // To Base85
 const toBase85 = (input: string): string => {
   // Example input: "Hello"
-  return ascii85.encode(input).toString();
+  try {
+    return ascii85.encode(input).toString();
+  } catch (e) {
+    return '';
+  }
 };
 
 // From ROT13
