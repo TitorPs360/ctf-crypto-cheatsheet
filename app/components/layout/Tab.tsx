@@ -10,7 +10,7 @@ import { MdOutlineQuestionMark } from 'react-icons/md';
 import { TbAlphabetGreek } from 'react-icons/tb';
 
 enum TabOption {
-  indentifier = 'indentifier',
+  identifier = 'identifier',
   language = 'language',
   solver = 'solver',
   translator = 'translator',
@@ -40,8 +40,8 @@ const Tab: FC<TabProps> = ({ activeTab, setActiveTab }) => {
       Icon: LuLightbulb,
     },
     {
-      id: TabOption.indentifier,
-      name: 'Indentifier',
+      id: TabOption.identifier,
+      name: 'Identifier',
       Icon: MdOutlineQuestionMark,
     },
     {
