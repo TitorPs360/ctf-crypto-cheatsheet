@@ -8,6 +8,29 @@ const reverseString = (input: string): string => {
   return input.split('').reverse().join('');
 };
 
+// From Binary
+const fromBinary = (input: string): string => {
+  const binaryArray = input.match(/.{1,8}/g); // Split binary into 8-bit chunks
+
+  if (binaryArray) {
+    const buffer = Buffer.from(binaryArray.map((byte) => parseInt(byte, 2)));
+    return buffer.toString('utf8');
+  }
+
+  return '';
+};
+
+// To Binary
+const toBinary = (input: string): string => {
+  let binary = '';
+
+  for (const byte of input) {
+    binary += byte.charCodeAt(0).toString(2).padStart(8, '0');
+  }
+
+  return binary;
+};
+
 // From Decimal
 const fromDecimal = (input: string): string => {
   // Example input: "72 101 108 108 111"
@@ -361,6 +384,10 @@ const getEncryptionResult = (input: string, algorithm: EncrytpionAlgorithm): str
   switch (algorithm) {
     case EncrytpionAlgorithm.reverseString:
       return reverseString(input);
+    case EncrytpionAlgorithm.fromBinary:
+      return fromBinary(input);
+    case EncrytpionAlgorithm.toBinary:
+      return toBinary(input);
     case EncrytpionAlgorithm.fromDecimal:
       return fromDecimal(input);
     case EncrytpionAlgorithm.toDecimal:
@@ -408,6 +435,8 @@ const getEncryptionResult = (input: string, algorithm: EncrytpionAlgorithm): str
 
 export {
   reverseString,
+  fromBinary,
+  toBinary,
   fromDecimal,
   toDecimal,
   fromHex,

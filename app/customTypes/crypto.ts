@@ -1,5 +1,7 @@
 enum EncrytpionAlgorithm {
   reverseString = 'REVERSE_STRING',
+  fromBinary = 'FROM_BINARY',
+  toBinary = 'TO_BINARY',
   fromDecimal = 'FROM_DECIMAL',
   toDecimal = 'TO_DECIMAL',
   fromHex = 'FROM_HEX',
@@ -24,6 +26,8 @@ enum EncrytpionAlgorithm {
 
 const EncrytpionNameMap = {
   'Reverse String': 'REVERSE_STRING',
+  'From Binary': 'FROM_BINARY',
+  'To Binary': 'TO_BINARY',
   'From Decimal': 'FROM_DECIMAL',
   'To Decimal': 'TO_DECIMAL',
   'From Hex': 'FROM_HEX',

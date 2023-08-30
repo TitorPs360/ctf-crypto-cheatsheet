@@ -7,6 +7,7 @@ import {
   fromBase62,
   fromBase64,
   fromBase85,
+  fromBinary,
   fromDecimal,
   fromHex,
   fromROT13,
@@ -17,6 +18,7 @@ import {
   toBase62,
   toBase64,
   toBase85,
+  toBinary,
   toDecimal,
   toHex,
   toROT13,
@@ -36,6 +38,18 @@ const encodingIdentifier = (inputText: string): EncrytpionAlgorithm[] => {
     originalText = reverseString(inputText);
     if (reverseString(originalText) == inputText && notEmptyString(originalText)) {
       resultArray.push(EncrytpionAlgorithm.reverseString);
+    }
+
+    // From Binary
+    originalText = toBinary(inputText);
+    if (fromBinary(originalText) == inputText && notEmptyString(originalText)) {
+      resultArray.push(EncrytpionAlgorithm.fromBinary);
+    }
+
+    // To Binary
+    originalText = fromBinary(inputText);
+    if (toBinary(originalText) == inputText && notEmptyString(originalText)) {
+      resultArray.push(EncrytpionAlgorithm.toBinary);
     }
 
     // From Decimal
