@@ -3,6 +3,11 @@ import { EncrytpionAlgorithm } from '../customTypes/crypto';
 const base45 = require('base45');
 const ascii85 = require('ascii85');
 
+// Reverse String
+const reverseString = (input: string): string => {
+  return input.split('').reverse().join('');
+};
+
 // From Decimal
 const fromDecimal = (input: string): string => {
   // Example input: "72 101 108 108 111"
@@ -354,6 +359,8 @@ const toROT47 = (input: string): string => {
 // Get Encryption result with encryption algorithm
 const getEncryptionResult = (input: string, algorithm: EncrytpionAlgorithm): string => {
   switch (algorithm) {
+    case EncrytpionAlgorithm.reverseString:
+      return reverseString(input);
     case EncrytpionAlgorithm.fromDecimal:
       return fromDecimal(input);
     case EncrytpionAlgorithm.toDecimal:
@@ -400,6 +407,7 @@ const getEncryptionResult = (input: string, algorithm: EncrytpionAlgorithm): str
 };
 
 export {
+  reverseString,
   fromDecimal,
   toDecimal,
   fromHex,

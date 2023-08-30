@@ -1,5 +1,6 @@
 import { EncrytpionAlgorithm } from '@customTypes/crypto';
 import {
+  reverseString,
   fromBase32,
   fromBase45,
   fromBase58,
@@ -30,6 +31,12 @@ const encodingIdentifier = (inputText: string): EncrytpionAlgorithm[] => {
   try {
     const resultArray = [];
     let originalText = '';
+
+    // Reverse String
+    originalText = reverseString(inputText);
+    if (reverseString(originalText) == inputText && notEmptyString(originalText)) {
+      resultArray.push(EncrytpionAlgorithm.reverseString);
+    }
 
     // From Decimal
     originalText = toDecimal(inputText);
